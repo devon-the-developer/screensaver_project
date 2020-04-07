@@ -9,7 +9,7 @@ class Pipe {
   boolean changingDir = false;
   
   Pipe(){
-    origin = new PVector(width/2, height/2, 0);
+    origin = new PVector(random(width), random(height), 0);
     loc = new PVector(origin.x, origin.y, origin.z);
     vel = new PVector();
     acc = new PVector();
@@ -22,8 +22,7 @@ class Pipe {
     fill(255);
     lightFalloff(1.0, 0.000001, 0);
     ambientLight(col, col, col);
-    directionalLight(126, 126, 126, 0, 0, -1);
-    directionalLight(126, 126, 126, 0, 0, 1);
+    
     if(changingDir){
       size = 30;
       changingDir = false;
