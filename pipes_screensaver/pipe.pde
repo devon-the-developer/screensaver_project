@@ -5,6 +5,8 @@ class Pipe {
   
   float size;
   float timeOfTravel = 0;
+  float col;
+  boolean changingDir = false;
   
   Pipe(){
     origin = new PVector(width/2, height/2, 0);
@@ -13,14 +15,25 @@ class Pipe {
     acc = new PVector();
     
     size = 25;
+    col = random(100, 250);
   }
   
   void display() {
+    fill(255);
+    lightFalloff(1.0, 0.000001, 0);
+    ambientLight(col, col, col);
+    directionalLight(126, 126, 126, 0, 0, -1);
+    directionalLight(126, 126, 126, 0, 0, 1);
+    if(changingDir){
+      size = 30;
+      changingDir = false;
+    }
     pushMatrix();
     translate(loc.x, loc.y, loc.z);
     noStroke();
     sphere(size);
     popMatrix();
+    size = 25;
   }
   
   void update() {
@@ -62,6 +75,7 @@ class Pipe {
         setDir = acc;
         break;
     }
+    changingDir = true;
     return setDir;
   }
   
