@@ -4,6 +4,7 @@ class Pipe {
   PVector origin;
   
   float size;
+  float timeOfTravel = 0;
   
   Pipe(){
     origin = new PVector(width/2, height/2, 0);
@@ -23,11 +24,15 @@ class Pipe {
   }
   
   void update() {
-    acc = direction();
+    if(timeOfTravel <= 0){
+      acc = direction();
+      timeOfTravel = random(50, 150);
+    }
     vel.add(acc);
     loc.add(vel);
     
     acc.mult(0);
+    timeOfTravel--;
   }
   
   PVector direction(){
@@ -36,25 +41,25 @@ class Pipe {
     int dir = int(random(1, 6));
     switch(dir) {
       case 1: //Up
-        setDir = new PVector(0, -1, 0);
+        setDir = new PVector(-vel.x, -1, -vel.z);
         break;
       case 2: //Down
-        setDir = new PVector(0, 1, 0);
+        setDir = new PVector(-vel.x, 1, -vel.z);
         break;
       case 3: //Left
-        setDir = new PVector(-1, 0, 0);
+        setDir = new PVector(-1, -vel.y, -vel.z);
         break;
       case 4: //Right
-        setDir = new PVector(1, 0, 0);
+        setDir = new PVector(1, -vel.y, -vel.z);
         break;
       case 5: //Towards
-        setDir = new PVector(0, 0, -1);
+        setDir = new PVector(-vel.x, -vel.y, -1);
         break;
       case 6: //Away
-        setDir = new PVector(0, 0, 1);
+        setDir = new PVector(-vel.x, -vel.y, 1);
         break;
       default:
-        setDir = new PVector(0, 0, 0);
+        setDir = acc;
         break;
     }
     return setDir;
