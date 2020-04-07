@@ -22,5 +22,13 @@ class Pipe {
     popMatrix();
   }
   
+  void update() {
+    acc = new PVector(random(-1, 1), random(-1,1), 0);
+    vel.add(acc);
+    loc.add(vel);
+    
+    acc.mult(0);
+  }
+  
   
 }

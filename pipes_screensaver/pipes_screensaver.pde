@@ -11,4 +11,5 @@ void draw(){
   ambientLight(255, 255, 255);
   directionalLight(126, 126, 126, 0, 0, -1);
   p1.display();
+  p1.update();
 }
