@@ -13,7 +13,7 @@ class ParticleSystem{
   }
   
   void run(){
-    if(particles.size() < 100){
+    if(particles.size() < 20){
       addParticle();
     }
     for(int i=particles.size() -1; i >= 0; i--){

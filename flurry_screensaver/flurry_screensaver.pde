@@ -1,15 +1,15 @@
-ParticleSystem ps;
+BeamSystem bs;
 
 void setup(){
   size(500, 500, P2D);
   pixelDensity(displayDensity());
   colorMode(HSB, 255, 255, 255);
   background(0);
-  ps = new ParticleSystem();
+  bs = new BeamSystem();
 }
 
 void draw(){
   blendMode(ADD);
   background(0);
-  ps.run();
+  bs.run();
 }
