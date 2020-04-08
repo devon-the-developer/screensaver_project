@@ -1,12 +1,14 @@
-Particle p1;
+ParticleSystem ps;
 
 void setup(){
   size(500, 500);
+  pixelDensity(displayDensity());
   colorMode(HSB, 255, 255, 255);
   background(0);
-  p1 = new Particle();
+  ps = new ParticleSystem();
 }
 
 void draw(){
-  p1.display();
+  background(0);
+  ps.run();
 }
