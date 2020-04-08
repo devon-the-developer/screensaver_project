@@ -2,6 +2,7 @@ class Particle {
   
   PVector loc, vel, acc;
   float w, h;
+  int lifeSpan;
   
   Particle(PVector _origin){
     loc = new PVector(_origin.x, _origin.y);
@@ -10,6 +11,7 @@ class Particle {
     
     w = 20;
     h = 20;
+    lifeSpan = 100;
   }
   
   void run(){
@@ -20,6 +22,7 @@ class Particle {
   void display(){
     fill(200, 200, 200, 150);
     ellipse(loc.x, loc.y, w, h);
+    lifeSpan--;
   }
   
   void applyForce(PVector _force){
@@ -28,7 +31,7 @@ class Particle {
   }
   
   void update(){
-    applyForce(new PVector(random(-0.5, 0.5), random(0.15)));
+    applyForce(new PVector(random(-0.1, 0.1), random(0.15)));
     vel.add(acc);
     loc.add(vel);
     

@@ -13,12 +13,15 @@ class ParticleSystem{
   }
   
   void run(){
-    while(particles.size() < 19){
+    if(particles.size() < 100){
       addParticle();
     }
     for(int i=particles.size() -1; i >= 0; i--){
       Particle p = particles.get(i);
       p.run();
+      if(p.lifeSpan <= 0){
+        particles.remove(i);
+      }
     }
   }
   
