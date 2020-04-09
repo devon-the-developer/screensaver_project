@@ -2,9 +2,10 @@ class Particle {
   
   PVector loc, vel, acc;
   float w, h;
+  float col;
   int lifeSpan;
   
-  Particle(PVector _origin){
+  Particle(PVector _origin, float _col){
     loc = new PVector(_origin.x, _origin.y);
     vel = new PVector();
     acc = new PVector();
@@ -12,6 +13,7 @@ class Particle {
     w = 20;
     h = 20;
     lifeSpan = 100;
+    col = _col;
   }
   
   void run(){
@@ -20,7 +22,7 @@ class Particle {
   }
   
   void display(){
-    fill(200, 200, 200, 150);
+    fill(col, 200, 200, 150);
     ellipse(loc.x, loc.y, w, h);
     lifeSpan--;
   }

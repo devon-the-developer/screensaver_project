@@ -2,14 +2,16 @@ class ParticleSystem{
   
   ArrayList<Particle> particles;
   PVector origin;
+  float col;
   
-  ParticleSystem(){
+  ParticleSystem(float _col){
     origin = new PVector(width/2, height/2);
     particles = new ArrayList<Particle>();
+    col = _col;
   }
   
   void addParticle(){
-    particles.add(new Particle(origin));
+    particles.add(new Particle(origin, col));
   }
   
   void run(){
