@@ -1,7 +1,7 @@
 class Particle {
   
   PVector loc, vel, acc;
-  float w, h;
+  float w, h, mass;
   float col;
   int lifeSpan;
   
@@ -14,6 +14,7 @@ class Particle {
     h = 20;
     lifeSpan = 100;
     col = _col;
+    mass = 20;
   }
   
   void run(){
@@ -25,6 +26,8 @@ class Particle {
     fill(col, 200, 200, 150);
     ellipse(loc.x, loc.y, w, h);
     lifeSpan--;
+    w -= 0.15;
+    h -= 0.15;
   }
   
   void applyForce(PVector _force){
