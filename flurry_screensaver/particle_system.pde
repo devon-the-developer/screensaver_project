@@ -39,7 +39,7 @@ class ParticleSystem{
     ////show desiredLocation
     //rect(desiredLocation.x, desiredLocation.y, 10, 10);
     
-    if(particles.size() < 100){
+    if(particles.size() < 110){
       addParticle();
     }
     for(int i=particles.size() -1; i >= 0; i--){

@@ -12,7 +12,7 @@ class Particle {
     
     w = 20;
     h = 20;
-    lifeSpan = 100;
+    lifeSpan = 110;
     col = _col;
     mass = 20;
   }
@@ -28,6 +28,10 @@ class Particle {
     lifeSpan--;
     w -= 0.15;
     h -= 0.15;
+    col += 2;
+    if(col > 255){
+      col = 0;
+    }
   }
   
   void applyForce(PVector _force){
